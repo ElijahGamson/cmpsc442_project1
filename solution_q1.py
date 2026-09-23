@@ -59,7 +59,7 @@ def breadth_fs():
         "RMM": [2, 0, -2, 0]
     }
 
-    # set up for BFS using a queue, with structure (current state, path to get there)
+    # set up for BFS using a queue, with structure = (current state, [path to get there]) as a tuple
 
     queue = []
 
@@ -75,7 +75,6 @@ def breadth_fs():
         current_state, current_path = queue.pop(0)
 
         #check for success condition (all on right bank)
-
         if current_state[0] == 0 and current_state[1] == 0:
             total_cost = len(current_path) - 1
             print("The solution of Q1.1.b (BFS) is:")
