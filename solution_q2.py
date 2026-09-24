@@ -20,7 +20,6 @@ def uniform_cost_a():
     ]
 
     # set of possible actions with changes to numbers of missionaries/cannibals per side
-    #! IS the L or R dictating what side the boat is currently on before the move (the two letters that follow)
     actions = {
         "LCC": [0, -2, 0, 2],
         "LC":  [0, -1, 0, 1],
@@ -271,4 +270,5 @@ def valid_state(state):
 
 if __name__ == "__main__":
     uniform_cost_a()
+    print("")
     uniform_cost_b()

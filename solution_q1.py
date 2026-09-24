@@ -247,4 +247,5 @@ def english_solution_path():
 
 if __name__ == "__main__":
     depth_fs()
+    print("")
     breadth_fs()
