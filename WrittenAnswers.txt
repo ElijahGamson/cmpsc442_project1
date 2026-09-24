@@ -1,0 +1,124 @@
+Q1.2:
+    1. 
+        Solution Path for Q1.1.a (DFS) is:
+        [3, 3, 0, 0, 'L']
+        [2, 2, 1, 1, 'R']
+        [3, 2, 0, 1, 'L']
+        [3, 0, 0, 3, 'R']
+        [3, 1, 0, 2, 'L']
+        [1, 1, 2, 2, 'R']
+        [2, 2, 1, 1, 'L']
+        [0, 2, 3, 1, 'R']
+        [0, 3, 3, 0, 'L']
+        [0, 1, 3, 2, 'R']
+        [1, 1, 2, 2, 'L']
+        [0, 0, 3, 3, 'R']
+        Number of node expansions (DFS) =  11
+
+        Solution Path for Q1.1.b (BFS) is:
+        [3, 3, 0, 0, 'L']
+        [3, 1, 0, 2, 'R']
+        [3, 2, 0, 1, 'L']
+        [3, 0, 0, 3, 'R']
+        [3, 1, 0, 2, 'L']
+        [1, 1, 2, 2, 'R']
+        [2, 2, 1, 1, 'L']
+        [0, 2, 3, 1, 'R']
+        [0, 3, 3, 0, 'L']
+        [0, 1, 3, 2, 'R']
+        [0, 2, 3, 1, 'L']
+        [0, 0, 3, 3, 'R']
+        Number of node expansions =  14
+
+    2. BFS has more node expansions than DFS, meaning it is less efficient. 
+    BFS guarantees an optimal solution because of how it expands the nodes. DFS just picks a path and expands it all the way down. So while it does find a path, that doesn't mean it's optimal, it was just the first successful path the algorithm found. BFS succeeds because it expands every node on the same level first before moving on, meaning that the first successful node it finds is the shallowest leaf node. In other words, the optimal solution
+    While BFS may get you the optimal solution, it is not as efficient. If all the possible solution nodes are deep paths, it will take a while to reach the first solution node. Whereas DFS doesn't expand much, so it's very efficient at finding a solution (not neccessarily the optimal though)
+ 
+Q2.2:
+    1. 
+        The solution of Q2.1 (UCS, cost model A) is:
+        Solution Path:
+        [3, 3, 0, 0, 'L']
+        [3, 1, 0, 2, 'R']
+        [3, 2, 0, 1, 'L']
+        [3, 0, 0, 3, 'R']
+        [3, 1, 0, 2, 'L']
+        [1, 1, 2, 2, 'R']
+        [2, 2, 1, 1, 'L']
+        [0, 2, 3, 1, 'R']
+        [0, 3, 3, 0, 'L']
+        [0, 1, 3, 2, 'R']
+        [0, 2, 3, 1, 'L']
+        [0, 0, 3, 3, 'R']
+        Total cost =  23
+        Number of node expansions =  14
+
+        The solution of Q2.1 (UCS, cost model B) is:
+        Solution Path:
+        [3, 3, 0, 0, 'L']
+        [3, 1, 0, 2, 'R']
+        [3, 2, 0, 1, 'L']
+        [3, 0, 0, 3, 'R']
+        [3, 1, 0, 2, 'L']
+        [1, 1, 2, 2, 'R']
+        [2, 2, 1, 1, 'L']
+        [0, 2, 3, 1, 'R']
+        [0, 3, 3, 0, 'L']
+        [0, 1, 3, 2, 'R']
+        [0, 2, 3, 1, 'L']
+        [0, 0, 3, 3, 'R']
+        Total cost =  17
+        Number of node expansions =  14
+
+    2. No, both UCS and BFS have the same solution path.
+        Blah, Balh, Blah (second part)
+        Neither, they both have the same number of node expansions.
+
+    3. balh, blah, blah
+
+Q3.2:
+    A. 
+
+    B. 
+        3.
+        Record results in a table
+        The solution of Q3.1 (Heuristic 1) is:
+        Solution Path:
+        [3, 3, 0, 0, 'L']
+        [3, 1, 0, 2, 'R']
+        [3, 2, 0, 1, 'L']
+        [3, 0, 0, 3, 'R']
+        [3, 1, 0, 2, 'L']
+        [1, 1, 2, 2, 'R']
+        [2, 2, 1, 1, 'L']
+        [0, 2, 3, 1, 'R']
+        [0, 3, 3, 0, 'L']
+        [0, 1, 3, 2, 'R']
+        [0, 2, 3, 1, 'L']
+        [0, 0, 3, 3, 'R']
+        Total cost =  23
+        Number of node expansions =  13
+        Yes, same cost as UCS
+
+        The solution of Q3.1 (Heuristic 2) is:
+        Solution Path:
+        [3, 3, 0, 0, 'L']
+        [3, 1, 0, 2, 'R']
+        [3, 2, 0, 1, 'L']
+        [3, 0, 0, 3, 'R']
+        [3, 1, 0, 2, 'L']
+        [1, 1, 2, 2, 'R']
+        [2, 2, 1, 1, 'L']
+        [0, 2, 3, 1, 'R']
+        [0, 3, 3, 0, 'L']
+        [0, 1, 3, 2, 'R']
+        [0, 2, 3, 1, 'L']
+        [0, 0, 3, 3, 'R']
+        Total cost =  23
+        Number of node expansions =  14
+        Yes, same cost as UCS
+
+        4. The h1 heuristic was more efficient bcause
+    C. 
+
+Q3.3 Extra Credit:
