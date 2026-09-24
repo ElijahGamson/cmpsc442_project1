@@ -73,7 +73,7 @@ def astar_heuristic_1():
                 print(state)
 
             print("Total cost = ", current_g)
-            print("Number of node exansions = ", expansions)
+            print("Number of node expansions = ", expansions)
 
             return current_path
 
@@ -208,7 +208,7 @@ def astar_heuristic_2():
                 print(state)
 
             print("Total cost = ", current_g)
-            print("Number of node exansions = ", expansions)
+            print("Number of node expansions = ", expansions)
 
             return current_path
 

@@ -73,7 +73,7 @@ def uniform_cost_a():
                 print(state)
 
             print("Total cost = ", current_cost)
-            print("Number of node exansions = ", expansions)
+            print("Number of node expansions = ", expansions)
 
             return current_path
 
@@ -194,7 +194,7 @@ def uniform_cost_b():
                 print(state)
 
             print("Total cost = ", current_cost)
-            print("Number of node exansions = ", expansions)
+            print("Number of node expansions = ", expansions)
 
             return current_path
 

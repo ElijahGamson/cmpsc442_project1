@@ -241,6 +241,10 @@ def valid_state(state):
 
     return True
 
+def english_solution_path():
+    """Turns a formulaic solution into a more plain english "story mode" solution"""
+    pass
+
 if __name__ == "__main__":
     depth_fs()
     breadth_fs()
