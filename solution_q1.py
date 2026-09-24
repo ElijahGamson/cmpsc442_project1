@@ -45,11 +45,11 @@ def depth_fs():
         "RMM": [2, 0, -2, 0]
     }
     
-    # set up for DFS using a queue, with structure = (current state, [path to get there]) as a tuple
+    # set up for DFS using a stack, with structure = (current state, [path to get there]) as a tuple
 
-    queue = []
+    stack = []
 
-    queue.append((initial_state, [initial_state]))
+    stack.append((initial_state, [initial_state]))
 
     visited = []
     visited.append(initial_state)
@@ -57,8 +57,8 @@ def depth_fs():
     expansions = 0
 
     # implement the DFS (always remove most recent non-visited state)
-    while len(queue) > 0:
-        current_state, current_path = queue.pop()
+    while len(stack) > 0:
+        current_state, current_path = stack.pop()
 
         #check for success condition (all on right bank)
         if current_state[0] == 0 and current_state[1] == 0:
@@ -104,9 +104,9 @@ def depth_fs():
                         # add action/state to path 
                         new_path = current_path + [new_state]
                         #add the new tuple to the queue
-                        queue.append((new_state, new_path))
+                        stack.append((new_state, new_path))
 
-    # empty queue -> no solution
+    # empty stack -> no solution
     
     print("The solution of Q1.1.a (DFS) is:")
     print("No solution found.")
