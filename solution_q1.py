@@ -18,7 +18,100 @@ def depth_fs():
     Solution Path: <Path>
     Total cost = <number>
     Number of node expansions = <number>\n\n"""
-    pass
+    with open("input.txt", "r") as file:
+        contents = file.read()
+
+    m_left, c_left, m_right, c_right, boat = contents.split(",")
+    initial_state = [
+        int(m_left.strip()), 
+        int(c_left.strip()), 
+        int(m_right.strip()),
+        int(c_right.strip()),
+        boat.strip()
+    ]
+    
+    # set of possible actions with changes to numbers of missionaries/cannibals per side
+    actions = {
+        "LCC": [0, -2, 0, 2],
+        "LC":  [0, -1, 0, 1],
+        "LCM": [-1, -1, 1, 1],
+        "LM":  [-1, 0, 1, 0],
+        "LMM": [-2, 0, 2, 0],
+    
+        "RCC": [0, 2, 0, -2],
+        "RC":  [0, 1, 0, -1],
+        "RCM": [1, 1, -1, -1],
+        "RM":  [1, 0, -1, 0],
+        "RMM": [2, 0, -2, 0]
+    }
+    
+    # set up for DFS using a queue, with structure = (current state, [path to get there]) as a tuple
+
+    queue = []
+
+    queue.append((initial_state, [initial_state]))
+
+    visited = []
+    visited.append(initial_state)
+
+    expansions = 0
+
+    # implement the DFS (always remove most recent non-visited state)
+    while len(queue) > 0:
+        current_state, current_path = queue.pop()
+
+        #check for success condition (all on right bank)
+        if current_state[0] == 0 and current_state[1] == 0:
+            total_cost = len(current_path) - 1
+            print("The solution of Q1.1.a (DFS) is:")
+            print("Solution Path:")
+
+            for state in current_path:
+                print(state)
+
+            print("Total cost = ", total_cost)
+            print("Number of node expansions = ", expansions)
+
+            return current_path
+
+        # if goal not reached, expand this node
+        expansions += 1
+
+        # generate possible next states from action set
+        for key in actions:
+            # only need to look at actions from current boat side
+            if key[0] == current_state[4]:
+
+                new_state = []
+                # calculates new values from current action
+                for j in range(4):
+                    new_state.append(current_state[j] + actions[key][j])
+
+                # move boat
+                if current_state[4] == "L":
+                    new_state.append("R")
+                else:
+                    new_state.append("L")
+
+                #check new state for validity
+
+                if valid_state(new_state):
+
+                    # ensure this state is not visited already
+                    if new_state not in visited:
+                        visited.append(new_state)
+
+                        # add action/state to path 
+                        new_path = current_path + [new_state]
+                        #add the new tuple to the queue
+                        queue.append((new_state, new_path))
+
+    # empty queue -> no solution
+    
+    print("The solution of Q1.1.a (DFS) is:")
+    print("No solution found.")
+
+    return None
 
 def breadth_fs():
     """
@@ -84,7 +177,7 @@ def breadth_fs():
                 print(state)
 
             print("Total cost = ", total_cost)
-            print("Number of node exansions = ", expansions)
+            print("Number of node expansions = ", expansions)
 
             return current_path
 
@@ -149,4 +242,5 @@ def valid_state(state):
     return True
 
 if __name__ == "__main__":
+    depth_fs()
     breadth_fs()
