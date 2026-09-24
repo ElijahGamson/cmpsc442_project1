@@ -239,11 +239,9 @@ def astar_heuristic_2():
                     # use the name of each action to find number of M and C, skipping first letter used for boat
                     action_cost = 0
                     
-                    for person in key[1:]:
-                        if person == "M":
-                            action_cost += 2
-                        elif person == "C":
-                            action_cost += 1
+                    m_moved = abs(actions[key][0]) #Get how many of each group moved
+                    c_moved = abs(actions[key][1])
+                    action_cost = 2 * m_moved + c_moved
 
                     # we use g as it is actual cost to reach new state
                     new_g = current_g + action_cost
@@ -283,7 +281,7 @@ def heuristic_2(state):
     m_left = state[0]
     c_left = state[1]
     weight_remaining = 2 * m_left + c_left
-    return (weight_remaining + 2) // 3
+    return (weight_remaining // 3) + 1
 
 def valid_state(state):
     # Returns true if the input state follows all rules in the situation
