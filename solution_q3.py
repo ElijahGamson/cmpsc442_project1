@@ -307,4 +307,5 @@ def valid_state(state):
 
 if __name__ == "__main__":
     astar_heuristic_1()
+    print("")
     astar_heuristic_2()

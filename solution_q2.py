@@ -270,4 +270,5 @@ def valid_state(state):
 
 if __name__ == "__main__":
     uniform_cost_a()
+    print("")
     uniform_cost_b()

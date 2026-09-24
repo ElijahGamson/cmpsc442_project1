@@ -243,4 +243,5 @@ def valid_state(state):
 
 if __name__ == "__main__":
     depth_fs()
+    print("")
     breadth_fs()
