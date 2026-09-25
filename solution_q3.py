@@ -271,11 +271,8 @@ def astar_heuristic_2():
 
 
 def astar_heuristic_3():
-    return None
     """
-    Heuristic 2 — Trip-Packing Lower Bound
-    ℎ2(𝑠) = ⌈2𝑀lef t + 1𝐶left⌉
-                    3
+    Heuristic 3 - passenger cost + minimum return trip cost
     """
     with open("input.txt", "r") as file:
         contents = file.read()
@@ -402,7 +399,7 @@ def astar_heuristic_3():
 
     # empty queue -> no solution
     
-    print("The solution of Q3.1 (Heuristic 2) is:")
+    print("The solution of Q3.1 (Heuristic 3) is:")
     print("No solution found.")
 
     return None
@@ -422,7 +419,18 @@ def heuristic_2(state):
     return (weight_remaining // 3)
 
 def heuristic_3(state):
-    pass
+    # h3 = passenger cost + minimum return trip cost
+    m_left = state[0]
+    c_left = state[1]
+    boat = state[4]
+
+    weight_remaining = 2 * m_left + c_left
+    people_left = m_left + c_left
+
+    if boat == "L":
+        return weight_remaining + max(0, people_left - 2)
+    else:
+        return weight_remaining + people_left
 
 def valid_state(state):
     # Returns true if the input state follows all rules in the situation
